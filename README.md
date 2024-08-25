@@ -116,3 +116,34 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 
 module.exports = { sequelize };
 ```
+
+# Elastick Beanstalk
+
+Primero analizar la aplicacion y que hace.
+
+Para crear una aplicacion en Elastic Beanstalk, primero debemos crear un archivo zip con el contenido de nuestra aplicacion
+
+Tambien en el .env pondremos todas las variables de entorno que necesitamos para que la aplicacion funcione correctamente. Recordar que no es buena practica subir las variables de entorno a un repositorio publico.
+
+# Bucket S3
+
+Remplazar "Resource" por el nombre de tu bucket
+
+```bash
+{
+  "Version": "2012-10-17",
+  "Id": "MyPolicy",
+  "Statement": [
+    {
+      "Sid": "PublicReadForGetBucketObjects",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::tu-arn/*"
+    }
+  ]
+}
+```
+
+Por que se necesita un bucket s3 para subir el frontend?
+Porque el frontend es una aplicacion estatica y no se puede subir a un servidor de aplicaciones como Elastic Beanstalk, y para hacerlo deberiamos subirlo a un servidor web como Apache o Nginx, pero esto es mas complicado y costoso, por lo que se sube a un bucket s3 que es mas facil y barato.
