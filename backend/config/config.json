@@ -1,9 +1,9 @@
 {
-  "production": {
+  "development": {
     "username": "postgres",
     "password": "postgres",
     "database": "aws-practico-servicios",
-    "host": "aws-practica-servicios.cvd2cr73x5qr.us-east-1.rds.amazonaws.com",
+    "host": "aws-clase.cvd2cr73x5qr.us-east-1.rds.amazonaws.com",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {

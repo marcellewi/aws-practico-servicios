@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const URL = "http://localhost:8000/";
-//const URL = "http://aws-servicios-env.us-east-1.elasticbeanstalk.com/";
+//const URL = "http://localhost:8000/";
+const URL = "http://aws-servicio-env.us-east-1.elasticbeanstalk.com/";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -15,7 +15,7 @@ function App() {
       const response = await axios.post(URL + "api/users", {
         username,
         email,
-        password,
+        password
       });
 
       if (response.status === 201) {
